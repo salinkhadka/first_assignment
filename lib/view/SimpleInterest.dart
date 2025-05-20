@@ -1,3 +1,4 @@
+import 'package:first_assignment/Model/simple_interest_model.dart';
 import 'package:flutter/material.dart';
 
 class SimpleInterestView extends StatefulWidget {
@@ -12,6 +13,8 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
   double rate = 0;
   double time = 0;
   double result = 0;
+
+  late SimpleInterestModel sm;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +66,8 @@ class _SimpleInterestViewState extends State<SimpleInterestView> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    result = (principal * rate * time) / 100;
+                    sm=SimpleInterestModel(p: principal, time: time, rate: rate);
+                    result=sm.calc();
                   });
                 },
                 child: Text("Calculate"),

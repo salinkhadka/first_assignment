@@ -1,5 +1,5 @@
+import 'package:first_assignment/view/arthimetic_view.dart';
 import 'package:flutter/material.dart';
-import 'first_view.dart';
 import 'AreaofCircle.dart';
 import 'SimpleInterest.dart';
 import 'palindromeNumber.dart';
@@ -24,7 +24,7 @@ class Dashboard extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const FirstView()),
+                    MaterialPageRoute(builder: (context) => const ArithmenticView()),
                   );
                 },
                 child: Text("Add Two Numbers"),
@@ -37,7 +37,8 @@ class Dashboard extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const AreaOfCircleView()),
+                    MaterialPageRoute(
+                        builder: (context) => const AreaOfCircleView()),
                   );
                 },
                 child: Text("Area of Circle"),
@@ -50,7 +51,8 @@ class Dashboard extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SimpleInterestView()),
+                    MaterialPageRoute(
+                        builder: (context) => const SimpleInterestView()),
                   );
                 },
                 child: Text("Simple Interest"),
@@ -63,7 +65,8 @@ class Dashboard extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PalindromeNumberView()),
+                    MaterialPageRoute(
+                        builder: (context) => const PalindromeNumberView()),
                   );
                 },
                 child: Text("Palindrome Number"),
@@ -75,3 +78,5 @@ class Dashboard extends StatelessWidget {
     );
   }
 }
+
+

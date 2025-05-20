@@ -1,18 +1,21 @@
+import 'package:first_assignment/Model/arithemetic_model.dart';
 import 'package:flutter/material.dart';
 
-class FirstView extends StatefulWidget {
-  const FirstView({super.key});
+class ArithmenticView extends StatefulWidget {
+  const ArithmenticView({super.key});
 
   @override
-  State<FirstView> createState() => _FirstViewState();
+  State<ArithmenticView> createState() => _ArithmenticViewState();
 }
 
-class _FirstViewState extends State<FirstView> {
+class _ArithmenticViewState extends State<ArithmenticView> {
   final firstcontroller = TextEditingController();
   final secondcontroller = TextEditingController();
   final mykey = GlobalKey<FormState>();
+  int result=0;
+  
 
-  int result = 0;
+  late ArithemeticModel am;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,8 +73,17 @@ class _FirstViewState extends State<FirstView> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    if (mykey.currentState!.validate()) {}
-                    // result = first + second;
+                    if (mykey.currentState!.validate()) 
+                    {
+                      int first=int.parse(firstcontroller.text);
+                      int second=int.parse(secondcontroller.text);
+                      am=ArithemeticModel(first: first, second: second);
+                      
+                      result=am.add();
+                      
+
+                    }
+                    
                   });
                 },
                 child: Text("Add"),
@@ -81,7 +93,7 @@ class _FirstViewState extends State<FirstView> {
             Container(
                 color: Colors.blue,
                 width: double.infinity,
-                child: const Text("Result : result",
+                child: Text("Result : $result",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 30))),
             RichText(
